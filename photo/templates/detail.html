@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block title %}Photo Detail{% endblock %}
+
+{% block contents %}
+<br>
+<div class="container">
+    <div class="row">
+        <div class="col offset-3">
+            <!-- タイトル -->
+            <h2>{{object.title}}</h2>
+
+            <!-- コメント -->
+            <p>{{object.comment}}</p>
+
+            <br>
+            <!-- 投稿日時 -->
+            <p>{{object.posted_at}}に投稿</p>
+
+            <!-- 1枚目の写真 -->
+            <img><img src="{{ object.image1.url }}"></img></p>
+
+            <!-- 2枚目の写真が投稿されていたら表示する-->
+            {%if object.image2 %}
+            <img><img src="{{ object.image2.url }}"></img></p>
+            {%endif%}
+        </div>
+    </div>
+</div>
+{% endblock %}
